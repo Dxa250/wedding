@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIN MONIROM & SEAN DAVIN - Wedding Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4a574;
+            --dark: #2c2c2c;
+            --light-bg: #fafafa;
+            --white: #ffffff;
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: clamp(12px, 2vw, 20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('wedding-1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+        }
+
+        header-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease-out;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            font-weight: 700;
+            letter-spacing: clamp(1px, 0.5vw, 3px);
+            text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(135deg, #fff 0%, #f0e6d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            font-weight: 300;
+            letter-spacing: clamp(2px, 0.5vw, 4px);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            margin-bottom: clamp(20px, 4vw, 30px);
+            color: #fff;
+        }
+
+        .date {
+            font-size: clamp(0.9rem, 2vw, 1.3rem);
+            letter-spacing: clamp(2px, 0.8vw, 5px);
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--primary-gold);
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: clamp(1rem, 2vw, 1.8rem) clamp(1rem, 3vw, 2rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: clamp(0.8rem, 1.5vw, 1.5rem) clamp(1rem, 3vw, 2rem);
+            box-shadow: var(--shadow-md);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            letter-spacing: clamp(1px, 0.3vw, 2px);
+            text-transform: uppercase;
+            transition: var(--transition);
+            font-weight: 600;
+            position: relative;
+            padding: 8px 0;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: var(--primary-gold);
+            outline: none;
+        }
+
+        nav a:hover::after,
+        nav a:focus::after {
+            width: 100%;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: clamp(60px, 12vw, 100px) 0;
+            background: linear-gradient(180deg, var(--white) 0%, #f8f8f8 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: clamp(40px, 8vw, 80px);
+            color: var(--dark);
+            letter-spacing: clamp(1px, 0.3vw, 2px);
+            position: relative;
+            padding-bottom: clamp(15px, 3vw, 25px);
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(80px, 15vw, 120px);
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+            gap: clamp(15px, 3vw, 25px);
+            margin-bottom: clamp(40px, 8vw, 60px);
+            padding: 0 clamp(15px, 4vw, 30px);
+            max-width: 2000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @supports (width: min(250px, 100%)) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            aspect-ratio: 4/5;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #000;
+            /* Better touch feedback */
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        @media (hover: hover) {
+            .gallery-item:hover {
+                transform: translateY(-12px) scale(1.03);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.15);
+                filter: brightness(1.05) contrast(1.08);
+            }
+        }
+
+        /* Active state for touch devices */
+        .gallery-item:active {
+            transform: scale(0.98);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: block;
+            filter: brightness(1.02) contrast(1.05);
+            will-change: transform;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.8), rgba(0, 0, 0, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #d4a574;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .play-button {
+            transform: scale(1);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #333;
+            letter-spacing: 0.5px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: #faf8f5;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            
+            height: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c2c2c 0%, #444 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: #d4a574;
+            color: #2c2c2c;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 2px solid #d4a574;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #d4a574;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #d4a574;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4a574;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Add scroll reveal animation */
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 8px;
+            animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 10001;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(212, 165, 116, 0.9);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            width: 60px;
+            height: 60px;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(212, 165, 116, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px 24px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (hover: none) {
+            .lightbox-nav,
+            .lightbox-close {
+                opacity: 0.9;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: clamp(44px, 10vw, 50px);
+                height: clamp(44px, 10vw, 50px);
+                font-size: clamp(24px, 6vw, 30px);
+                padding: 12px;
+            }
+
+            .lightbox-prev {
+                left: clamp(10px, 2vw, 15px);
+            }
+
+            .lightbox-next {
+                right: clamp(10px, 2vw, 15px);
+            }
+
+            .lightbox-close {
+                top: clamp(15px, 3vw, 20px);
+                right: clamp(15px, 3vw, 20px);
+                width: clamp(44px, 10vw, 50px);
+                height: clamp(44px, 10vw, 50px);
+                font-size: clamp(28px, 7vw, 35px);
+            }
+
+            .lightbox-counter {
+                bottom: clamp(15px, 3vw, 20px);
+                font-size: clamp(14px, 3vw, 16px);
+                padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
+            }
+
+            .lightbox-image {
+                max-width: 98%;
+                max-height: 90vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lightbox-content {
+                max-width: 100%;
+            }
+        }
+
+        /* Responsive */
+        /* Modern Responsive Breakpoints */
+        @media (min-width: 1400px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) and (max-width: 1399px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 1023px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                gap: clamp(1rem, 3vw, 1.5rem);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(10px, 2vw, 15px);
+            }
+
+            .gallery-item {
+                aspect-ratio: 3/4;
+            }
+
+            header {
+                min-height: 100vh;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                gap: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: clamp(12px, 3vw, 18px);
+            }
+
+            .gallery-item {
+                aspect-ratio: 4/5;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-height: 600px) and (orientation: landscape) {
+            header {
+                height: auto;
+                min-height: 100vh;
+                padding: 60px 20px;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+        }
+
+/* Gallery layout - Modern Grid System */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 30px;
+}
+
+/* Photo card with modern styling */
+.photo {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  background: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.photo:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+/* Smooth animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add stagger effect to gallery items */
+.gallery-item {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.05s; }
+.gallery-item:nth-child(2) { animation-delay: 0.1s; }
+.gallery-item:nth-child(3) { animation-delay: 0.15s; }
+.gallery-item:nth-child(4) { animation-delay: 0.2s; }
+.gallery-item:nth-child(5) { animation-delay: 0.25s; }
+.gallery-item:nth-child(6) { animation-delay: 0.3s; }
+
+/* Hover effect */
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#gallery">Gallery</a>
+    </nav>
+
+    <!-- Header -->
+    <header style="background-image: url(photo_9_2026-01-27_20-52-43.jpg);">
+        <header-content >
+            <h1>BIN MONIROM & SEAN DAVIN</h1>
+
+            <p class="subtitle">Forever Begins Today</p>
+            <p class="date">MARCH 14, 2026• Domril wedding</p>
+        </header-content>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="photo_1_2026-01-27_20-52-43.jpg" alt="photo_1_2026-01-27_20-52-43">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_2_2026-01-27_20-52-43.jpg" alt="First dance">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_3_2026-01-27_20-52-43.jpg" alt="Wedding rings">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_7_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_8_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_9_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_10_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_11_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_12_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_13_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_14_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_15_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_16_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_17_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_18_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_22_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_24_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_25_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_26_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_27_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_28_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_29_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_30_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+               <div class="gallery-item">
+                    <img src="photo_31_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_32_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_33_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_34_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_35_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo_36_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_37_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_38_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_39_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_40_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_41_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_42_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_43_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_44_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_45_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+                 <div class="gallery-item">
+                    <img src="photo_46_2026-01-27_20-52-43.jpg" alt="Reception dinner">
+                    <div class="gallery-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
+        <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
+        <div class="lightbox-content">
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+        </div>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <script>
+        // Modern scroll behavior for navigation
+        const nav = document.querySelector('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        // Lightbox functionality with performance optimizations
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        
+        let currentIndex = 0;
+        const images = Array.from(galleryItems).map(img => img.src);
+
+        // Preload adjacent images for better performance
+        function preloadImages(index) {
+            const preloadIndices = [
+                (index + 1) % images.length,
+                (index - 1 + images.length) % images.length
+            ];
+            
+            preloadIndices.forEach(i => {
+                const img = new Image();
+                img.src = images[i];
+            });
+        }
+
+        // Open lightbox with touch support
+        galleryItems.forEach((img, index) => {
+            const clickHandler = (e) => {
+                e.preventDefault();
+                currentIndex = index;
+                showImage();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                preloadImages(currentIndex);
+            };
+
+            img.parentElement.addEventListener('click', clickHandler);
+            
+            // Better touch support
+            img.parentElement.addEventListener('touchend', (e) => {
+                if (e.cancelable) {
+                    e.preventDefault();
+                    clickHandler(e);
+                }
+            }, { passive: false });
+        });
+
+        // Show current image with animation
+        function showImage() {
+            lightboxImage.style.opacity = '0';
+            setTimeout(() => {
+                lightboxImage.src = images[currentIndex];
+                lightboxImage.style.opacity = '1';
+                lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+            }, 150);
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Navigation with touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next image
+                    navigateNext();
+                } else {
+                    // Swipe right - previous image
+                    navigatePrev();
+                }
+            }
+        }
+
+        function navigatePrev() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage();
+            preloadImages(currentIndex);
+        }
+
+        function navigateNext() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage();
+            preloadImages(currentIndex);
+        }
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigatePrev();
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateNext();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage();
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage();
+            }
+        });
+    </script>
+
+    </footer>
+</body>
+</html>
